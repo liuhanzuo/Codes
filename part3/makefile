@@ -5,13 +5,17 @@ test_transformer:
 train_and_test_transformer: train_transformer test_transformer
 	
 train_rnn:
-	bash train_rnn.sh 0 0
+	bash train.sh rnn 0.5 1000000 0.003
 test_rnn:
-	bash eval.sh rnn model_1.pt 0.5m_rnn.json
+	bash eval.sh rnn 0.5 model_best.pt
 train_and_test_rnn: train_rnn test_rnn
 
 train_hybrid:
-	bash train_hybrid.sh 0 0
+	bash train.sh hybrid 0.5 1000000 0.001
 test_hybrid:
-	bash eval.sh hybrid model_1.pt 0.5m_hybrid.json
+	bash eval.sh hybrid 0.5 model_best.pt
 train_and_test_hybrid: train_hybrid test_hybrid
+
+love: train_rnn train_hybrid
+gen: 
+	bash gen.sh
