@@ -16,6 +16,13 @@ test_hybrid:
 	bash eval.sh hybrid 0.5 model_best.pt
 train_and_test_hybrid: train_hybrid test_hybrid
 
+transformer_all:
+	bash train.sh transformer 0.5 1000000 0.001
+	bash train.sh transformer 1 1000000 0.001
+	bash train.sh transformer 2 1000000 0.001
+	bash eval.sh transformer 0.5 model_best.pt
+	bash eval.sh transformer 1 model_best.pt
+	bash eval.sh transformer 2 model_best.pt
 love: train_rnn train_hybrid
 gen: 
 	bash gen.sh
