@@ -189,14 +189,13 @@ def main():
     model = model.to(device=args.device, dtype=torch.float32)
     log_file = args.output_dir + '/log.txt' if args.output_dir is not None else None
     val_loss , val_acc = evaluate(model, val_loader, args, log_file)
-    val_loss_cot, val_acc_cot = evaluate_through_generation(model, val_loader, val_dataset, args)
+    val_acc_cot = evaluate_through_generation(model, val_loader, val_dataset, args)
     print(f'Initial | val loss: {val_loss} | val acc: {val_acc}')
-    print(f'COT | val loss: {val_loss_cot} | val acc: {val_acc_cot}')
+    print(f'COT | val acc: {val_acc_cot}')
     json.dump({
         'val_acc': val_acc,
         'val_loss': val_loss,
         'val_acc_cot': val_acc_cot,
-        'val_loss_cot': val_loss_cot
     }, open(f'{args.output_dir}/eval_results.json', 'w'))
 
 if __name__ == '__main__':
