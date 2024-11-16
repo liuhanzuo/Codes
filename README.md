@@ -15,6 +15,13 @@ make gen
 
 to generate data, this may take a while for not longer 10 minutes, the data will be stored in ``./part3/data``
 
+also, since we will use the pretrained model from huggingface , you may need to use clash(however if you are in America, it may not be necessary)
+
+```
+cd clash
+./clash -d .
+```
+
 then train the rnn,hybri model by run
 
 ```

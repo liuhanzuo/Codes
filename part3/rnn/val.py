@@ -92,12 +92,16 @@ def evaluate_through_generation(model, val_loader, val_dataset, args):
         # from IPython import embed; embed()
         # print(f'generated: {val_dataset.convert_ids_to_tokens(generated[0])}')
         # find the first appearance of the [TRUE] and [FALSE] token, check if it's the same as the last token of input_ids
-        true_indices = generated.eq(val_dataset.vocab['[TRUE]']).nonzero()
-        false_indices = generated.eq(val_dataset.vocab['[FALSE]']).nonzero()
+        true_indices = generated.eq(val_dataset.vocab['[TRUE]']).nonzero() # true_indices means the index of [TRUE] token in the generated sequence
+        false_indices = generated.eq(val_dataset.vocab['[FALSE]']).nonzero() # false_indices means the index of [FALSE] token in the generated sequence
         true_index = true_indices[0, 1].item() if true_indices.size(0) > 0 else -1
         false_index = false_indices[0, 1].item() if false_indices.size(0) > 0 else -1
         # print(true_index, false_index)
         result = val_dataset.vocab['[TRUE]']
+        with open(os.path.join(args.output_dir, 'generation_log.txt'), 'a') as f:
+            f.write(f'Generated: {val_dataset.convert_ids_to_tokens(generated[0])}\n')
+            f.write(f'Ground Truth: {val_dataset.convert_ids_to_tokens(input_ids[0])}\n')
+            f.write('\n')
         if false_index != -1 and (true_index == -1 or true_index > false_index):
             result = val_dataset.vocab['[FALSE]']
         if false_index == -1 and true_index == -1:
