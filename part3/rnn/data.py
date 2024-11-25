@@ -377,7 +377,7 @@ if __name__ == '__main__':
     parser.add_argument('--size', type=int, default = 500000)
     parser.add_argument('--pad', type=str, default = 'right')
     args = parser.parse_args()
-    PATH = "./data"
+    PATH = "/root/autodl-tmp/data"
     if(args.task_type == 'no_cot'):
         train_dataset = IsTreeDataset(args.n_nodes, args.graph_type, False, False, False, args.size, 0, pad = args.pad)
         val_dataset = IsTreeDataset(args.n_nodes, args.graph_type, False, False, False, 5000, 0, pad = args.pad)

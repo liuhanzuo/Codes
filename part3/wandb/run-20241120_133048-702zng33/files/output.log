@@ -1,0 +1,86 @@
+/root/Codes/part3/rnn/data.py:358: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  tensor_data = torch.load(f'{input_dir}/tensor_data.pt')
+torch.Size([56, 128])
+Parameters: 1.18M
+Loading...
+rnn/train.py:225: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(args.previous_model_path))
+HybridMambaLMHeadModel(
+  (backbone): HybridMixerModel(
+    (embedding): Embedding(56, 128)
+    (layers): ModuleList(
+      (0-6): 7 x Block(
+        (norm): RMSNorm()
+        (mixer): Mamba(
+          (in_proj): Linear(in_features=128, out_features=512, bias=False)
+          (conv1d): Conv1d(256, 256, kernel_size=(4,), stride=(1,), padding=(3,), groups=256)
+          (act): SiLU()
+          (x_proj): Linear(in_features=256, out_features=40, bias=False)
+          (dt_proj): Linear(in_features=8, out_features=256, bias=True)
+          (out_proj): Linear(in_features=256, out_features=128, bias=False)
+        )
+      )
+    )
+    (norm_f): RMSNorm()
+    (attention): LlamaDecoderLayer(
+      (self_attn): LlamaAttention(
+        (q_proj): Linear(in_features=128, out_features=512, bias=False)
+        (k_proj): Linear(in_features=128, out_features=512, bias=False)
+        (v_proj): Linear(in_features=128, out_features=512, bias=False)
+        (o_proj): Linear(in_features=512, out_features=128, bias=False)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (mlp): LlamaMLP(
+        (gate_proj): Linear(in_features=128, out_features=256, bias=False)
+        (up_proj): Linear(in_features=128, out_features=256, bias=False)
+        (down_proj): Linear(in_features=256, out_features=128, bias=False)
+        (act_fn): SiLU()
+      )
+      (input_layernorm): LlamaRMSNorm((128,), eps=1e-05)
+      (post_attention_layernorm): LlamaRMSNorm((128,), eps=1e-05)
+    )
+  )
+  (lm_head): Linear(in_features=128, out_features=56, bias=False)
+)
+  0%|                                                                                                                                                     | 0/20 [00:00<?, ?it/s]The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:12<00:00,  1.62it/s]
+Initial | val loss: 26.457968616485594 | val acc: 0.0
+start training
+  0%|                                                                                                                                                   | 0/7812 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "rnn/train.py", line 242, in <module>
+    main()
+  File "rnn/train.py", line 239, in main
+    train(model, optimizer, scheduler, train_loader, val_loader, args)
+  File "rnn/train.py", line 91, in train
+    logits = model(input_ids)[0]
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/Codes/part3/rnn/hybrid.py", line 305, in forward
+    hidden_states = self.backbone(input_ids, inference_params=inference_params)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/Codes/part3/rnn/hybrid.py", line 221, in forward
+    hidden_states, residual = layer(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/Codes/part3/rnn/mamba_ssm/modules/block.py", line 67, in forward
+    hidden_states = self.mixer(hidden_states, inference_params=inference_params, **mixer_kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/Codes/part3/rnn/mamba_ssm/modules/mamba_simple.py", line 189, in forward
+    y = selective_scan_fn(
+  File "/root/Codes/part3/rnn/mamba_ssm/ops/selective_scan_interface.py", line 88, in selective_scan_fn
+    return selective_scan_ref(u, delta, A, B, C, D, z, delta_bias, delta_softplus, return_last_state)
+  File "/root/Codes/part3/rnn/mamba_ssm/ops/selective_scan_interface.py", line 126, in selective_scan_ref
+    deltaA = torch.exp(torch.einsum('bdl,dn->bdln', delta, A))
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/functional.py", line 386, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 346.50 MiB is free. Process 340143 has 13.41 GiB memory in use. Process 365412 has 9.89 GiB memory in use. Of the allocated memory 9.08 GiB is allocated by PyTorch, and 378.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,25 @@
+{"time":"2024-11-20T14:10:53.308961241+08:00","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-20T14:10:53.30900347+08:00","level":"INFO","msg":"created symlink","path":"/root/Codes/part3/wandb/run-20241120_141053-h4yfe1pd/logs/debug-core.log"}
+{"time":"2024-11-20T14:10:53.430776935+08:00","level":"INFO","msg":"created new stream","id":"h4yfe1pd"}
+{"time":"2024-11-20T14:10:53.43087308+08:00","level":"INFO","msg":"stream: started","id":"h4yfe1pd"}
+{"time":"2024-11-20T14:10:53.430938127+08:00","level":"INFO","msg":"sender: started","stream_id":"h4yfe1pd"}
+{"time":"2024-11-20T14:10:53.430934579+08:00","level":"INFO","msg":"handler: started","stream_id":{"value":"h4yfe1pd"}}
+{"time":"2024-11-20T14:10:53.430929623+08:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"h4yfe1pd"}}
+{"time":"2024-11-20T14:10:54.430331982+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-20T16:06:44.101136043+08:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/graphql"}
+{"time":"2024-11-21T00:42:54.971121855+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-21T00:53:09.982853666+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-21T01:12:18.300871925+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/h4yfe1pd/file_stream"}
+{"time":"2024-11-21T01:57:18.196210006+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/h4yfe1pd/file_stream"}
+{"time":"2024-11-21T01:57:26.041633176+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/h4yfe1pd/file_stream"}
+{"time":"2024-11-21T01:57:55.027122433+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-11-21T03:02:19.021503515+08:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/h4yfe1pd/file_stream"}
+{"time":"2024-11-21T03:14:15.01567406+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/h4yfe1pd/file_stream"}
+{"time":"2024-11-21T05:51:17.478089769+08:00","level":"INFO","msg":"stream: closing","id":"h4yfe1pd"}
+{"time":"2024-11-21T05:51:17.478172548+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-21T05:51:17.479262329+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-21T05:51:19.045929821+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-21T05:51:19.973221436+08:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"h4yfe1pd"}}
+{"time":"2024-11-21T05:51:19.973284027+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"h4yfe1pd"}}
+{"time":"2024-11-21T05:51:19.973301913+08:00","level":"INFO","msg":"sender: closed","stream_id":"h4yfe1pd"}
+{"time":"2024-11-21T05:51:19.973462954+08:00","level":"INFO","msg":"stream: closed","id":"h4yfe1pd"}

@@ -1,0 +1,76 @@
+/root/Codes/part3/rnn/data.py:358: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  tensor_data = torch.load(f'{input_dir}/tensor_data.pt')
+tensor([[ 0.0000e+00,  1.0000e+00,  0.0000e+00,  ...,  1.0000e+00,
+          0.0000e+00,  1.0000e+00],
+        [ 8.4147e-01,  5.4030e-01,  6.8156e-01,  ...,  1.0000e+00,
+          1.3335e-04,  1.0000e+00],
+        [ 9.0930e-01, -4.1615e-01,  9.9748e-01,  ...,  1.0000e+00,
+          2.6670e-04,  1.0000e+00],
+        ...,
+        [ 9.0179e-01, -4.3218e-01,  6.2345e-02,  ...,  9.9997e-01,
+          6.1342e-03,  9.9998e-01],
+        [ 1.2357e-01, -9.9234e-01, -6.3461e-01,  ...,  9.9997e-01,
+          6.2675e-03,  9.9998e-01],
+        [-7.6825e-01, -6.4014e-01, -9.9112e-01,  ...,  9.9996e-01,
+          6.4009e-03,  9.9998e-01]])
+Parameters: 2.89M
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(49, 64)
+    (layers): ModuleList(
+      (0-15): 16 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=512, bias=False)
+          (k_proj): Linear(in_features=64, out_features=512, bias=False)
+          (v_proj): Linear(in_features=64, out_features=512, bias=False)
+          (o_proj): Linear(in_features=512, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=49, bias=False)
+)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:03<00:00, 24.16it/s]
+Initial | val loss: 13.005869515334503 | val acc: 0.0
+start training
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.48it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.50it/s]
+Step 0 | Train loss | 13.159917831420898 | Samples 0 | Train acc: 0.0 | Val loss: 13.005869515334503 | Val acc: 0.0 | learning rate: 6.41025641025641e-07
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.42it/s]
+Step 782 | Train loss | 3.63682321448588 | Samples 50048 | Train acc: 0.0 | Val loss: 2.0862827451923227 | Val acc: 0.0 | learning rate: 9.998404459589077e-05
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.51it/s]
+Step 1563 | Train loss | 0.9865180787527957 | Samples 100032 | Train acc: 0.0 | Val loss: 1.909444203859643 | Val acc: 0.0 | learning rate: 9.991955766863001e-05
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.47it/s]
+Step 2344 | Train loss | 0.623865571052535 | Samples 150016 | Train acc: 0.0 | Val loss: 1.8187522601477708 | Val acc: 0.0 | learning rate: 9.980564049517183e-05
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.41it/s]
+Step 3125 | Train loss | 0.4257368642553182 | Samples 200000 | Train acc: 0.0 | Val loss: 1.5457762208166002 | Val acc: 0.0 | learning rate: 9.964240587607363e-05
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.45it/s]
+Step 3907 | Train loss | 0.2873033958972416 | Samples 250048 | Train acc: 0.0009990409207161126 | Val loss: 1.3161561277848255 | Val acc: 0.0042 | learning rate: 9.942971207381999e-05
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:02<00:00, 28.46it/s]
+Step 4688 | Train loss | 0.19396170390951376 | Samples 300032 | Train acc: 0.007282330345710628 | Val loss: 1.078185961216311 | Val acc: 0.014 | learning rate: 9.916831362647369e-05
+  8%|███████████████▋                                                                                                                                                                                               | 5903/78125 [09:28<1:51:51, 10.76it/s]Traceback (most recent call last):
+Step 5469 | Train loss | 0.12355210737510834 | Samples 350016 | Train acc: 0.021786971830985914 | Val loss: 0.6944665554203565 | Val acc: 0.0398 | learning rate: 9.885822881327851e-05
+  File "rnn/train_trans.py", line 241, in <module>
+    main()
+  File "rnn/train_trans.py", line 238, in main
+    train(model, optimizer, scheduler, train_loader, val_loader, args)
+  File "rnn/train_trans.py", line 93, in train
+    loss.backward()
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

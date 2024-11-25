@@ -1,0 +1,16 @@
+{"time":"2024-11-21T16:54:39.26836783+08:00","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-21T16:54:39.268416187+08:00","level":"INFO","msg":"created symlink","path":"/root/Codes/part3/wandb/run-20241121_165439-euhfjalz/logs/debug-core.log"}
+{"time":"2024-11-21T16:54:39.391250756+08:00","level":"INFO","msg":"created new stream","id":"euhfjalz"}
+{"time":"2024-11-21T16:54:39.391352637+08:00","level":"INFO","msg":"stream: started","id":"euhfjalz"}
+{"time":"2024-11-21T16:54:39.395377252+08:00","level":"INFO","msg":"sender: started","stream_id":"euhfjalz"}
+{"time":"2024-11-21T16:54:39.395337912+08:00","level":"INFO","msg":"handler: started","stream_id":{"value":"euhfjalz"}}
+{"time":"2024-11-21T16:54:39.39540629+08:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"euhfjalz"}}
+{"time":"2024-11-21T16:54:40.293402654+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-21T17:21:45.824812352+08:00","level":"INFO","msg":"stream: closing","id":"euhfjalz"}
+{"time":"2024-11-21T17:21:45.824890293+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-21T17:21:45.826248456+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-21T17:21:47.44620465+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-21T17:21:48.271273536+08:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"euhfjalz"}}
+{"time":"2024-11-21T17:21:48.271380269+08:00","level":"INFO","msg":"sender: closed","stream_id":"euhfjalz"}
+{"time":"2024-11-21T17:21:48.271351838+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"euhfjalz"}}
+{"time":"2024-11-21T17:21:48.272673862+08:00","level":"INFO","msg":"stream: closed","id":"euhfjalz"}

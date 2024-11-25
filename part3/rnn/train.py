@@ -66,7 +66,11 @@ def train(model, optimizer, scheduler, train_loader, val_loader, args):
     val_accs = []
     pbar = tqdm(total=(args.total_training_samples // args.batch_size))
     criterion = nn.CrossEntropyLoss(ignore_index=-100)
+    iteration = 0
+    flag = 0
     while total_samples_processed < args.total_training_samples:
+        if flag >= 5:
+            break
         for batch in train_loader:
             input_ids, attention_mask, labels = batch['input_ids'], batch['attention_mask'], batch['labels']
             batch_size = input_ids.size(0)
@@ -106,10 +110,11 @@ def train(model, optimizer, scheduler, train_loader, val_loader, args):
                 train_acc = train_acc_accumulator / train_samples_accumulator if train_samples_accumulator > 0 else 0
                 train_loss = train_loss_accumulator / (step + 1)
                 val_loss, val_acc = evaluate(model, val_loader, args)
-                print(f'Step {step} | Samples {total_samples_processed} | Train acc: {train_acc} | Val loss: {val_loss} | Val acc: {val_acc} | learning rate: {scheduler.get_last_lr()[0]}')
+                print(f'Step {step} | Train loss | {train_loss} | Samples {total_samples_processed} | Train acc: {train_acc} | Val loss: {val_loss} | Val acc: {val_acc} | learning rate: {scheduler.get_last_lr()[0]}')
                 if val_acc > best_val_acc:
                     torch.save(model.state_dict(), f'{args.output_dir}/model_best.pt')
                     best_val_acc = val_acc
+                torch.save(model.state_dict(), f'{args.output_dir}/model_{iteration}.pt')
                 if args.report_to_wandb:
                     wandb.log({"Step": step, "Train Loss": train_loss, "Train Accuracy": train_acc, "Validation Loss": val_loss, "Validation Accuracy": val_acc}, step=step)
                 train_losses.append(train_loss)
@@ -121,7 +126,11 @@ def train(model, optimizer, scheduler, train_loader, val_loader, args):
                 train_loss_accumulator = 0
                 train_acc_accumulator = 0
                 train_samples_accumulator = 0
-
+                iteration += 1
+            if train_loss < 0.02:
+                flag += 1
+            if train_loss >= 0.02:
+                flag = 0
             total_samples_processed += batch_size
             step += 1
             pbar.update(1)
@@ -141,7 +150,11 @@ def main():
     print(args.previous_model_path)
     args.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if args.report_to_wandb:
-        wandb.init()
+        wandb.login()
+        wandb.init(
+            project = 'NLP_HW',
+            name=f'train new cot {args.output_dir}'
+        )
     set_seed(args.seed)
     train_dataset = load_dataset(args.dataset_dir)
     val_dataset = load_dataset(os.path.join(args.dataset_dir, 'val'))

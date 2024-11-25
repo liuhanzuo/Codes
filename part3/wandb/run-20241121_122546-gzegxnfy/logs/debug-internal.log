@@ -1,0 +1,18 @@
+{"time":"2024-11-21T12:25:46.292876964+08:00","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-21T12:25:46.292898052+08:00","level":"INFO","msg":"created symlink","path":"/root/Codes/part3/wandb/run-20241121_122546-gzegxnfy/logs/debug-core.log"}
+{"time":"2024-11-21T12:25:46.404095393+08:00","level":"INFO","msg":"created new stream","id":"gzegxnfy"}
+{"time":"2024-11-21T12:25:46.404187338+08:00","level":"INFO","msg":"stream: started","id":"gzegxnfy"}
+{"time":"2024-11-21T12:25:46.404209544+08:00","level":"INFO","msg":"sender: started","stream_id":"gzegxnfy"}
+{"time":"2024-11-21T12:25:46.404196025+08:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"gzegxnfy"}}
+{"time":"2024-11-21T12:25:46.404247149+08:00","level":"INFO","msg":"handler: started","stream_id":{"value":"gzegxnfy"}}
+{"time":"2024-11-21T12:25:47.236308228+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-21T12:25:47.354760754+08:00","level":"INFO","msg":"stream: closing","id":"gzegxnfy"}
+{"time":"2024-11-21T12:25:47.354826232+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-21T12:25:47.358271424+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-21T12:25:47.6386267+08:00","level":"WARN","msg":"No requirements.txt found, not creating job artifact. See https://docs.wandb.ai/guides/launch/create-job"}
+{"time":"2024-11-21T12:25:47.638662774+08:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-21T12:25:49.019437083+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-21T12:25:49.933079314+08:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"gzegxnfy"}}
+{"time":"2024-11-21T12:25:49.933185408+08:00","level":"INFO","msg":"sender: closed","stream_id":"gzegxnfy"}
+{"time":"2024-11-21T12:25:49.933170888+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"gzegxnfy"}}
+{"time":"2024-11-21T12:25:49.933373391+08:00","level":"INFO","msg":"stream: closed","id":"gzegxnfy"}

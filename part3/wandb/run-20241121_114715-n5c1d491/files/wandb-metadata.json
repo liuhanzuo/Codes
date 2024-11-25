@@ -1,0 +1,64 @@
+{
+  "os": "Linux-5.15.0-78-generic-x86_64-with-glibc2.17",
+  "python": "3.8.10",
+  "startedAt": "2024-11-21T03:47:15.308762Z",
+  "args": [
+    "--model_type",
+    "transformer",
+    "--dataset_dir",
+    "/root/autodl-tmp/data/rnn/cot_binary_32_1000000_right",
+    "--output_dir",
+    "./output_transformer_2_2000000_new",
+    "--previous_model_path",
+    "./output_transformer_2_2000000/model_best.pt",
+    "--model_config_path",
+    "./configs/2m_transformer.json",
+    "--batch_size",
+    "64",
+    "--total_training_samples",
+    "2000000",
+    "--report_to_wandb",
+    "--log_interval",
+    "5000",
+    "--lr",
+    "0.0001"
+  ],
+  "program": "rnn/train.py",
+  "codePath": "part3/rnn/train.py",
+  "git": {
+    "remote": "git@github.com:liuhanzuo/Codes.git",
+    "commit": "431c2aa698c6a046b6a37b4de020b4c380efd51e"
+  },
+  "email": "lhz24@mails.tsinghua.edu.cn",
+  "root": "/root/Codes/part3",
+  "host": "autodl-container-94c04983bb-adefdae2",
+  "username": "root",
+  "executable": "/root/miniconda3/bin/python3",
+  "codePathLocal": "rnn/train.py",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "32212254720",
+      "used": "11821408256"
+    }
+  },
+  "memory": {
+    "total": "1081810513920"
+  },
+  "cpu": {
+    "count": 64,
+    "countLogical": 128
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.2"
+}

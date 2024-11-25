@@ -1,0 +1,84 @@
+/root/Codes/part3/rnn/data.py:358: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  tensor_data = torch.load(f'{input_dir}/tensor_data.pt')
+tensor([[ 0.0000e+00,  1.0000e+00,  0.0000e+00,  ...,  1.0000e+00,
+          0.0000e+00,  1.0000e+00],
+        [ 8.4147e-01,  5.4030e-01,  6.8156e-01,  ...,  1.0000e+00,
+          1.3335e-04,  1.0000e+00],
+        [ 9.0930e-01, -4.1615e-01,  9.9748e-01,  ...,  1.0000e+00,
+          2.6670e-04,  1.0000e+00],
+        ...,
+        [ 9.0179e-01, -4.3218e-01,  6.2345e-02,  ...,  9.9997e-01,
+          6.1342e-03,  9.9998e-01],
+        [ 1.2357e-01, -9.9234e-01, -6.3461e-01,  ...,  9.9997e-01,
+          6.2675e-03,  9.9998e-01],
+        [-7.6825e-01, -6.4014e-01, -9.9112e-01,  ...,  9.9996e-01,
+          6.4009e-03,  9.9998e-01]])
+Parameters: 2.89M
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(49, 64)
+    (layers): ModuleList(
+      (0-15): 16 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=512, bias=False)
+          (k_proj): Linear(in_features=64, out_features=512, bias=False)
+          (v_proj): Linear(in_features=64, out_features=512, bias=False)
+          (o_proj): Linear(in_features=512, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=49, bias=False)
+)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:03<00:00,  5.79it/s]
+Initial | val loss: 13.010677099227905 | val acc: 0.0
+start training
+  0%|                                                                                                                                                                                                                             | 0/7812 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "rnn/train.py", line 241, in <module>
+    main()
+  File "rnn/train.py", line 238, in main
+    train(model, optimizer, scheduler, train_loader, val_loader, args)
+  File "rnn/train.py", line 87, in train
+    outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 1190, in forward
+    outputs = self.model(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 945, in forward
+    layer_outputs = decoder_layer(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 560, in forward
+    key_states = self.k_proj(hidden_states)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 80.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 40.50 MiB is free. Process 374036 has 13.41 GiB memory in use. Process 466296 has 10.19 GiB memory in use. Of the allocated memory 9.74 GiB is allocated by PyTorch, and 10.62 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

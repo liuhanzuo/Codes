@@ -1,0 +1,15 @@
+{"time":"2024-11-21T08:31:03.137667412+08:00","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-21T08:31:03.137709445+08:00","level":"INFO","msg":"created symlink","path":"/root/Codes/part3/wandb/run-20241121_083103-sh0iuaw2/logs/debug-core.log"}
+{"time":"2024-11-21T08:31:03.260530226+08:00","level":"INFO","msg":"created new stream","id":"sh0iuaw2"}
+{"time":"2024-11-21T08:31:03.260616519+08:00","level":"INFO","msg":"stream: started","id":"sh0iuaw2"}
+{"time":"2024-11-21T08:31:03.26070046+08:00","level":"INFO","msg":"sender: started","stream_id":"sh0iuaw2"}
+{"time":"2024-11-21T08:31:03.260675527+08:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"sh0iuaw2"}}
+{"time":"2024-11-21T08:31:03.26068811+08:00","level":"INFO","msg":"handler: started","stream_id":{"value":"sh0iuaw2"}}
+{"time":"2024-11-21T08:31:04.151110092+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-21T17:35:34.652904703+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-21T17:36:07.033351088+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-11-21T17:36:41.085965515+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-21T17:37:15.151012621+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/lhz24-tsinghua-university/NLP_HW/sh0iuaw2/file_stream\": dial tcp 35.186.228.49:443: connect: connection timed out"}
+{"time":"2024-11-21T17:37:20.776879244+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-21T17:38:09.204878908+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-11-21T17:39:03.95500199+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.17.0.9:58322->35.186.228.49:443: read: connection reset by peer"}
