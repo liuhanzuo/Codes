@@ -5,7 +5,7 @@ test_transformer:
 train_and_test_transformer: train_transformer test_transformer
 	
 train_rnn:
-	bash train.sh rnn 0.5 2000000 0.003 320
+	bash train.sh rnn 0.5 5000000 0.003 256
 test_rnn:
 	bash eval.sh rnn 0.5 model_best.pt 2000000
 train_and_test_rnn: train_rnn test_rnn

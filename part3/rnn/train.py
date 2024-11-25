@@ -152,8 +152,8 @@ def main():
     if args.report_to_wandb:
         wandb.login()
         wandb.init(
-            project = 'NLP_HW',
-            name=f'train new cot {args.output_dir}'
+            project = 'NLP_HW_rnn',
+            name=f'train cot {args.output_dir}'
         )
     set_seed(args.seed)
     train_dataset = load_dataset(args.dataset_dir)
