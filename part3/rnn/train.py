@@ -221,7 +221,10 @@ def main():
         raise NotImplementedError
     if args.previous_model_path is not None and os.path.exists(args.previous_model_path):
         print("Loading...")
-        model.load_state_dict(torch.load(args.previous_model_path))
+        state_dict = torch.load(args.previous_model_path)
+        state_dict_2 = {k.replace('module.',''):v for k,v in state_dict.items()}
+        model.load_state_dict(state_dict_2)
+        #model.load_state_dict(torch.load(args.previous_model_path))
     model = model.to(device=args.device, dtype=torch.float32)
     print(model)
     val_loss, val_acc = evaluate(model, val_loader, args)
